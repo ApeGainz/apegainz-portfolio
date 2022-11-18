@@ -2,14 +2,15 @@ import React from 'react';
 import {useEffect, useState} from 'react';
   
 function LandingFooter() {
+  const [priceOfEth, setData] = useState(null) 
+
     useEffect(() => {
         fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
         .then(response => response.json())
         .then((data) => {
-        console.log(data.ethereum.usd);
-        const priceOfEth = data.ethereum.usd;
-        const priceDiv = document.getElementById("eth-price");
-        priceDiv.innerHTML = priceOfEth;
+          console.log(data.ethereum.usd);
+          const priceOfEth = data.ethereum.usd
+          setData(priceOfEth)
       })
       .catch((e) => {
         console.error(`An error occurred: ${e}`)
@@ -20,7 +21,7 @@ function LandingFooter() {
     <footer className="footer landing-footer">
        <div class="columns">
             <div class="column">
-                <p class="">Price of Eth today: <span id="eth-price"></span></p>
+                <p class="">Price of Eth today: $ {priceOfEth} </p>
                 <div class="columns is-mobile">
                 <div class="column">
                     <p class="">Price of milk per litre: $0.74</p>
