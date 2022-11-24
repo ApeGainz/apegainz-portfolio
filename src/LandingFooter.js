@@ -2,15 +2,15 @@ import React from 'react';
 import {useEffect, useState} from 'react';
   
 function LandingFooter() {
-  const [priceOfEth, setData] = useState(null) 
+  const [priceOfEth, setPrice] = useState(null) 
 
     useEffect(() => {
         fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
         .then(response => response.json())
         .then((data) => {
+          const priceData = data.ethereum.usd
           console.log(data.ethereum.usd);
-          const priceOfEth = data.ethereum.usd
-          setData(priceOfEth)
+          setPrice(priceData)
       })
       .catch((e) => {
         console.error(`An error occurred: ${e}`)

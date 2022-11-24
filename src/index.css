@@ -41,6 +41,7 @@ body,html {
   color: #363636;
   font-weight: bold;
   width: 100%;
+  text-align: center;
 }
 
 .landing-container {
@@ -54,7 +55,6 @@ body,html {
   background-color: #FEF9EF;
   margin-bottom: 0;
   font-size: 1.33rem;
-  /* border: 2px solid red; */
 }
 
 .footer-link{
