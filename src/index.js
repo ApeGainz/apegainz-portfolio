@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Blogs from "./components/HindsightTool";
 import Dph from "./components/Dph";
 import 'bulma/css/bulma.min.css';
-import './components/index.css';
+import './components/home.css';
 
 export default function App() {
   return (

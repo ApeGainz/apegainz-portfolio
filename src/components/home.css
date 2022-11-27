@@ -60,3 +60,15 @@ body,html {
 .footer-link{
   color: #FE6D73;
 }
+
+.dph-title{
+  font-size:9rem;
+  font-weight: 700;
+  line-height: 80%;
+}
+
+.dph-subtitle{
+  font-size:2.5rem;
+  font-weight: bold;
+  line-height: 80%;
+}
