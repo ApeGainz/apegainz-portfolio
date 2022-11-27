@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Navbar";
-import Home from "./Home";
-import Blogs from "./HindsightTool";
-import Dph from "./Dph";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Blogs from "./components/HindsightTool";
+import Dph from "./components/Dph";
 import 'bulma/css/bulma.min.css';
-import './index.css';
+import './components/index.css';
 
 export default function App() {
   return (
