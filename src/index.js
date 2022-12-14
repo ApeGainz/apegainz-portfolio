@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Blogs from "./components/HindsightTool";
+import HindsightTool from "./components/HindsightTool";
 import Dph from "./components/Dph";
 import 'bulma/css/bulma.min.css';
 import './components/home.css';
@@ -13,7 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
+          <Route path="hindsighttool" element={<HindsightTool />} />
           <Route path="dph" element={<Dph />} />
         </Route>
       </Routes>
