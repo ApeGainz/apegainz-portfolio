@@ -5,12 +5,13 @@ import {useEffect} from 'react';
 const Dph = () => {
 
     useEffect(() => {
-        fetch('https://api.opensea.io/api/v1/collection/doodles-official/stats')
+        fetch('https://api.opensea.io/api/v1/collection/doodles-official')
         .then(response => response.json())
         .then((data) => {
         //   const priceData = data.ethereum.usd
           console.log(data);
-          console.log(data.stats.floor_price)
+          console.log(data.collection.stats.floor_price)
+          console.log(data.collection.payment_tokens[0].usd_price)
         //   setPrice(priceData)
       })
       .catch((e) => {
