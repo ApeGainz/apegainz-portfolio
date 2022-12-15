@@ -1,23 +1,40 @@
 import React from 'react';
 import moon from '../assets/moon.png';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
   
 const Dph = () => {
 
-    useEffect(() => {
-        fetch('https://api.opensea.io/api/v1/collection/doodles-official')
-        .then(response => response.json())
-        .then((data) => {
-        //   const priceData = data.ethereum.usd
-          console.log(data);
-          console.log(data.collection.stats.floor_price)
-          console.log(data.collection.payment_tokens[0].usd_price)
-        //   setPrice(priceData)
-      })
-      .catch((e) => {
-        console.error(`An error occurred: ${e}`)
-      });
-  }, []);
+  const [priceOfNFT, setPrice] = useState(null)
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(inputs.salary / priceOfNFT)
+  }
+
+  console.log(inputs)
+
+  useEffect(() => {
+    fetch('https://api.opensea.io/api/v1/collection/' + inputs.nft)
+    .then(response => response.json())
+    .then((data) => {
+    //   const priceData = data.ethereum.usd
+      console.log(data);
+      console.log(data.collection.stats.floor_price)
+      console.log(data.collection.payment_tokens[0].usd_price)
+      const priceData = data.collection.payment_tokens[0].usd_price * data.collection.stats.floor_price
+      setPrice(priceData)
+  })
+  .catch((e) => {
+    console.error(`An error occurred: ${e}`)
+  });
+}, [inputs]);
 
 
   return (
@@ -34,56 +51,40 @@ const Dph = () => {
       </div>
   </div>
 
-  <div class="container input-container">  
-        <div class="tile is-ancestor">
-            <div class="tile is-7 is-vertical is-parent">
-                <div class="tile is-child">
-                    <div class="columns is-vcentered">
-                        <div class="column is-5 is-vcentered">
-                            <h4 class="salary-dph"> Annual Salary (USD) </h4>
-                        </div>
-                        <div class="column is-7">
-                            <input class="input-dph input is-normal" placeholder="50000" id="inputted-salary"></input>
-                        </div>
-                    </div>
-                </div>
+    <div> 
+  </div>
 
-                <div class="tile is-child">
-                    <div class="columns is-vcentered"> 
-                        <div class="column is-5 is-vcentered">
-                            <h4 class="salary-dph"> NFT </h4>
-                        </div>
-                      
-                        <div class="column is-7">
-                            <div class="select is-large select-dph">
-                                <select class="select-dph">
-                                  <option class="option-dph" id="bayc-option"> BAYC </option>
-                                  <option class="option-dph" id="mayc-option"> MAYC </option>
-                                  <option class="option-dph" id="fidenza-option"> Fidenza </option>
-                                  <option class="option-dph" id="ck-option"> Cyberkongz </option>
-                                  <option class="option-dph" id="punk-option"> Cryptopunk </option>
-                                </select>
-                              </div>
-                        </div>
-                    </div>  
-                </div>
-          
-                {/* <button class="button button-dph-ghost tile is-12 is-child"></button> */}
-                <button class="button button-dph tile is-12 is-child" onclick="myFunction()">
-                    Submit
-                </button>
-            </div>
-
-            {/* <!-- Gif and result output --> */}
-            <div class="tile is-parent">
-              <div class="tile is-child has-text-centered">
-                <div class="title" id="gif-output"> </div>
-                <p class="time-text" id="time-calculation"> </p>
-              </div>
-            </div>
-          </div>
-    </div>
-
+<form onSubmit={handleSubmit}>
+      <label>Enter your annual salary:
+      <input 
+        type="number" 
+        name="salary" 
+        value={inputs.salary || ""} 
+        onChange={handleChange}
+        placeholder="50000"
+      />
+      </label>
+      <label> NFT
+      <select 
+      // type="number" 
+          name="nft" 
+          // value={inputs.nft || ""} 
+          onChange={handleChange}>
+        <option disabled selected value> -- select an option -- </option>
+        <option class='option-dph' value="mutant-ape-yacht-club">MAYC</option>
+        <option class='option-dph' value="boredapeyachtclub">BAYC</option>
+        <option class='option-dph' value="sappy-seals">Sappy Seals</option>
+        <option class='option-dph' value="doodles-official">Audi</option>
+      </select>
+        {/* <input 
+          type="number" 
+          name="nft" 
+          value={inputs.nft || ""} 
+          onChange={handleChange}
+        /> */}
+        </label>
+        <input type="submit" />
+    </form>
 
 
 </div>
