@@ -9,6 +9,7 @@ const Dph = () => {
   const [inputs, setInputs] = useState({});
   const [formSubmitted, setFormSubmit] =useState(null);
   const [formError, setFormError] = useState(null)
+  const [timeText, setTimeText] = useState(null)
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -19,14 +20,21 @@ const Dph = () => {
   const handleSubmit = (event) => {
     if(inputs.salary === undefined || inputs.salary <= 0 || !inputs.nft){
       setFormError(true)
-      setFormSubmit(false)
+      setFormSubmit(true)
+      setTimeText(null)
+    
     }
     else{
       setFormError(null)
       setFormSubmit(true)
+      
     }
     event.preventDefault();
-    console.log(inputs.salary / priceOfNFT)
+    const timeInYears = (priceOfNFT / inputs.salary)
+
+    const timeDiv = `You'll have to work for ${timeInYears} years`;
+
+    setTimeText(timeDiv)
   }
 
   console.log(inputs)
@@ -119,7 +127,7 @@ const Dph = () => {
         )
         :
         (
-          <div className='has-text-centered time-text'> You'll have to work for this many years </div>
+          <div className='has-text-centered time-text'> {timeText} </div>
         )
         }
       </div>
