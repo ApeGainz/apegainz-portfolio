@@ -20,7 +20,7 @@ const Dph = () => {
   const handleSubmit = (event) => {
     if(inputs.salary === undefined || inputs.salary <= 0 || !inputs.nft){
       setFormError(true)
-      setFormSubmit(true)
+      setFormSubmit(null)
       setTimeText(null)
     
     }
@@ -107,7 +107,7 @@ const Dph = () => {
                   <option className='option-dph' value="mutant-ape-yacht-club">MAYC</option>
                   <option className='option-dph' value="boredapeyachtclub">BAYC</option>
                   <option className='option-dph' value="sappy-seals">Sappy Seals</option>
-                  <option className='option-dph' value="doodles-official">Audi</option>
+                  <option className='option-dph' value="doodles-official"> Doodles</option>
                 </select>
               </div>
             </div>
