@@ -49,6 +49,7 @@ body,html {
   min-height: calc(100vh - 270px);
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .landing-footer{
