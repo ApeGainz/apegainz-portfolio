@@ -1,9 +1,9 @@
 #dphContainer{
-    margin-top: 5%;     
+    margin-top: 3%;     
 }
   
 .dph-title{
-    font-size:9rem;
+    font-size:8rem;
     font-weight: 700;
     line-height: 80%;
     letter-spacing: -.3rem;
@@ -11,13 +11,13 @@
 
 .dph-subtitle{
     margin-top: 2%;
-    font-size:2.5rem;
+    font-size:2.33rem;
     /* font-weight:  */
     line-height: 100%;
 }
 
 .moon-pic{
-    width:90%;
+    width:80%;
 }
 
 .dph-body-container{
@@ -61,3 +61,10 @@ input[type=number] {
 
 }
 
+.message{
+    width: 100%;
+}
+
+.time-text{
+    font-size: 1.5rem;
+}

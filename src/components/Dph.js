@@ -17,8 +17,9 @@ const Dph = () => {
   }
 
   const handleSubmit = (event) => {
-    if(inputs.salary === undefined || !inputs.nft){
+    if(inputs.salary === undefined || inputs.salary <= 0 || !inputs.nft){
       setFormError(true)
+      setFormSubmit(false)
     }
     else{
       setFormError(null)
@@ -107,23 +108,34 @@ const Dph = () => {
               Submit
           </button>
         </form>
+        {formError
+        ?
+        (
+        <article className="message is-danger">
+          <div class="message-body">
+            Please submit your salary and select an NFT
+          </div>
+        </article>
+        )
+        :
+        (
+          <div className='has-text-centered time-text'> You'll have to work for this many years </div>
+        )
+        }
       </div>
       
       {formSubmitted &&
         <div className='column has-text-centered'>
-          output gif
+          <figure class="image">
+            <img src="https://media0.giphy.com/media/13rQ7rrTrvZXlm/giphy.gif?cid=790b76119bbfdb00d48c9f1838a8053115b0579862e9e59b&rid=giphy.gif&ct=g"></img>
+          </figure>
+          
         </div>
       }
 
       </div>
 
-      {formError &&
-      <article className="message is-danger">
-        <div class="message-body">
-          Please submit your salary and select an NFT
-        </div>
-      </article>
-      }
+      
       
     </div>
   );
