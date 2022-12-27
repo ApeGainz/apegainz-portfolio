@@ -13,8 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
-          <Route path="hindsighttool" element={<HindsightTool />} />
           <Route path="dph" element={<Dph />} />
+          <Route path="hindsighttool" element={<HindsightTool />} />
         </Route>
       </Routes>
     </BrowserRouter>
