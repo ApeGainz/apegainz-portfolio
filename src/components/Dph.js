@@ -56,6 +56,7 @@ const Dph = () => {
 }, [inputs]);
 
   return (
+    <>
     <div className="container dph-container" id="dphContainer">  
       <div className="columns">
           <div className="column is-8">
@@ -133,19 +134,16 @@ const Dph = () => {
       </div>
       
       {formSubmitted &&
-        <div className='column has-text-centered'>
-          <figure class="image">
+        <div className='column has-text-right is-4'>
+          <figure class="image is-1-by-1">
             <img src="https://media0.giphy.com/media/13rQ7rrTrvZXlm/giphy.gif?cid=790b76119bbfdb00d48c9f1838a8053115b0579862e9e59b&rid=giphy.gif&ct=g"></img>
           </figure>
           
         </div>
       }
-
       </div>
-
-      
-      
-    </div>
+      </div>
+    </>
   );
 };
   
