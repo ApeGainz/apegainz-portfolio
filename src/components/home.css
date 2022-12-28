@@ -21,9 +21,14 @@ body,html {
   font-size: 1.5rem;
 }
 
-.nav-item:hover{
-  color: black;
-  font-weight: bold;
+a {
+  position: relative;
+  color: #363636;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FE6D73;
 }
 
 

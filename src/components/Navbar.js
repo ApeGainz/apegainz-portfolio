@@ -19,7 +19,6 @@ const Navbar = () => {
                 <div className='column has-text-centered is-2'>
                     <Link to="/web3Quiz" className='nav-item' style={{pointerEvents: 'none'}}> Web3 Quiz </Link>
                 </div>
-                
             </div> 
         </div>
         
