@@ -68,3 +68,12 @@ a:hover {
   color: #FE6D73;
 }
 
+
+@media screen and (max-width: 1023px) and (min-width: 769px){
+  .navbar-menu{
+      display: none;
+      background-color: #FEF9EF;
+      box-shadow: none;
+      padding: 0;
+  }
+}
