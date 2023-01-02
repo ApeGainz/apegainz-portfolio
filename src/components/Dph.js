@@ -31,6 +31,7 @@ const Dph = () => {
     }
     event.preventDefault();
     const timeInYears = (priceOfNFT / inputs.salary)
+    const timeInMonths = timeInYears * 12
 
     const timeDiv = `You'll have to work for ${timeInYears} years`;
 
